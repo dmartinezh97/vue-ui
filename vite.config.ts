@@ -1,47 +1,25 @@
 import { defineConfig } from 'vite'
+import { resolve } from "path"
 import vue from '@vitejs/plugin-vue'
-import dts from 'vite-plugin-dts'
-import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    dts({
-      insertTypesEntry: true,
-    }),
-  ],
+  plugins: [vue()],
   build: {
-    cssCodeSplit: true,
     lib: {
-      // Could also be a dictionary or array of multiple entry points
-      entry: "src/components/main.ts",
-      name: 'vueDaniUI',
-      formats: ["es", "cjs", "umd"],
-      fileName: format => `vue-dani-ui.${format}.js`
+      // src/indext.ts aquí es donde tenemos exportado todos los componentes
+      entry: resolve(__dirname, "src/index.ts"),
+      name: "DaniComponentsLibrary",
+      // El nombre de los archivos de salida cuando se ejecuta la compilación
+      fileName: "dani-component-lib",
     },
     rollupOptions: {
-      // make sure to externalize deps that should not be bundled
-      // into your library
-      input: {
-        main: new URL('src/components/main.ts', import.meta.url).pathname
-      },
-      external: ['vue'],
+      external: ["vue"],
       output: {
-        assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'main.css') return 'vue-dani-ui.css';
-          return assetInfo.name;
-        },
-        exports: "named",
         globals: {
-          vue: 'Vue',
+          vue: "Vue",
         },
       },
-    },
-  },
-  resolve: {
-    alias: {
-      '@': new URL('src', import.meta.url).pathname,
     },
   },
 })

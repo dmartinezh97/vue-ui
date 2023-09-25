@@ -1,11 +1,5 @@
 import { createApp } from 'vue'
-import { HelloWorld } from '@/components/main.ts'
+import './style.css'
+import App from './App.vue'
 
-const app = createApp({})
-
-app
-    .component('HelloWorld', HelloWorld)
-
-app.mount('#app')
-
-export { HelloWorld };
+createApp(App).mount('#app')
