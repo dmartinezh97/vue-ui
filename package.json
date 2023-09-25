@@ -1,0 +1,38 @@
+{
+  "name": "vue-dani-ui",
+  "private": false,
+  "version": "0.0.4",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-dani-ui.umd.js",
+  "module": "./dist/vue-dani-ui.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-dani-ui.es.js",
+      "require": "./dist/vue-dani-ui.umd.js"
+    },
+    "./dist/vue-dani-ui.css": {
+      "import": "./dist/vue-dani-ui.css",
+      "require": "./dist/vue-dani-ui.css"
+    }
+  },
+  "types": "./dist/main.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "path": "^0.12.7",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.5.4",
+    "vue-tsc": "^1.8.5"
+  }
+}
