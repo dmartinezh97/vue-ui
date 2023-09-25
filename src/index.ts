@@ -1,3 +1,3 @@
-import TestButton from "./components/TestButton.vue";
+import VButton from "./components/VButton/VButton.vue";
 
-export { TestButton };
+export { VButton };
