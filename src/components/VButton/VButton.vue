@@ -6,7 +6,7 @@ type ButtonType = "button" | "submit" | "reset" | undefined;
 const props = withDefaults(defineProps<{
   text: string,
   type?: ButtonType,
-  to?: object,
+  to?: string,
   target?: string,
   block?: boolean,
   rounded?: boolean,
@@ -28,7 +28,9 @@ const props = withDefaults(defineProps<{
 
 const emit = defineEmits(['click'])
 const onClick = () => {
-  emit('click')
+  if(!props.disabled && !props.loading){
+    emit('click')
+  }  
 };
 
 const classObject = computed(() => ({
@@ -44,24 +46,20 @@ const classObject = computed(() => ({
 </script>
 
 <template>
-  <button v-if="!props.to" :type="props.type" :class="classObject" :disabled="props.disabled"
-    class="flex items-center justify-center font-semibold px-6 py-3 leading-none transition ease-in duration-150"
-    @click="onClick">
-    <slot name="icon">
-    </slot>
+  <component
+    :is="props.to ? 'router-link' : 'button'"
+    :to="props.to"
+    :type="props.type"
+    :class="[classObject, 'flex items-center justify-center font-semibold px-6 py-3 leading-none transition ease-in duration-150']"
+    :disabled="props.disabled"
+    @click="onClick"
+  >
+    <slot name="icon"></slot>
     {{ text }}
-  </button>
-  <router-link v-else :to="props.to" :class="classObject" :disabled="props.disabled" :target="props.target"
-    class="flex items-center justify-center font-semibold px-6 py-3 leading-none transition ease-in duration-150"
-    @click="onClick">
-    <slot name="icon">
-    </slot>
-    {{ text }}
-  </router-link>
+  </component>
 </template>
 
 <style>
-
 @keyframes spinner {
   to {
     transform: rotate(360deg);
