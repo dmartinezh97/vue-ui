@@ -1,0 +1,51 @@
+name: publish
+
+on: push
+
+jobs:
+  test:
+    name: Lint y test
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Instalar dependencias
+        run: npm install
+  
+  publish:
+    name: Publicación
+    runs-on: ubuntu-latest
+    needs: test
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+      
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Publicar en NPM
+        uses: JS-Devtools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+      
