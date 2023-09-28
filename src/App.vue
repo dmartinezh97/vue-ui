@@ -35,7 +35,7 @@
           <div class="space-y-2 w-full">
             <div
               class="max-w-3xl mx-auto space-y-4 flex flex-col items-center justify-center sm:space-y-0 sm:space-x-4 sm:flex-row sm:items-end sm:justify-center">
-              <VTextField label="Test"></VTextField>
+              <VTextField label="Correo electrónico"></VTextField>
               <!-- <VButton text="Primary"></VButton>
               <VButton text="Outlined" outlined></VButton>
               <VButton text="Shadow" shadow></VButton>

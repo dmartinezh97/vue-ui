@@ -33,7 +33,7 @@ const updateValue = (e: Event) => {
             <input :value="modelValue" :type="props.type" @input="updateValue" :name="props.label" placeholder=" "
                 class="block w-full z-2 appearance-none focus:outline-none bg-transparent" />
             <label :for="props.label"
-                class="absolute top-1/2 left-6 transform -translate-y-1/2 z-1 duration-300 bg-white">{{ props.label
+                class="absolute top-1/2 left-6 transform -translate-y-1/2 z-1 duration-300 bg-white text-gray-400 pointer-events-none">{{ props.label
                 }}</label>
         </div>
     </div>
