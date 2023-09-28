@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, withDefaults, defineProps, defineEmits } from 'vue';
 
 type ButtonType = "button" | "submit" | "reset" | undefined;
 
@@ -36,9 +36,9 @@ const onClick = () => {
 const classObject = computed(() => ({
   'w-full': props.block,
   'rounded-lg': props.rounded,
-  'bg-uno-500 text-white border border-uno-500 hover:bg-dos': !props.outlined && !props.disabled,
+  'bg-primary-500 text-white border border-primary-500 hover:bg-primary-600': !props.outlined && !props.disabled,
   'bg-gray-100 text-gray-600 border border-none': props.outlined && !props.disabled,
-  'shadow-lg shadow-uno-500/50': props.shadow && !props.disabled,
+  'shadow-lg shadow-primary-500/50': props.shadow && !props.disabled,
   'bg-gray-200 hover:bg-gray-300 text-gray-400 border border-gray-300': props.disabled,
   'base-spinner cursor-wait': props.loading,
 }))
