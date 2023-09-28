@@ -7,7 +7,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        // primary: '#BA2057',
         // primary: '#F3F4F6',
         // secondary: '#F3F4F6',
         // negro: '#15161b',
@@ -17,7 +16,9 @@ export default {
         // rosa: '#BA2057',
         // rosaclaro: '#E26091',
         // uno: '#BA2057',
+        // primary: '#BA2057',
         primary: {
+          DEFAULT: '#BA2057',
           "50": "#FBE5EC",
           "100": "#F7CFDD",
           "200": "#EE9BB8",

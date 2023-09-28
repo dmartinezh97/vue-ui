@@ -36,9 +36,9 @@ const onClick = () => {
 const classObject = computed(() => ({
   'w-full': props.block,
   'rounded-lg': props.rounded,
-  'bg-primary-500 text-white border border-primary-500 hover:bg-primary-600': !props.outlined && !props.disabled,
+  'bg-primary text-white border border-primary hover:bg-primary-600': !props.outlined && !props.disabled,
   'bg-gray-100 text-gray-600 border border-none': props.outlined && !props.disabled,
-  'shadow-lg shadow-primary-500/50': props.shadow && !props.disabled,
+  'shadow-lg shadow-primary/50': props.shadow && !props.disabled,
   'bg-gray-200 hover:bg-gray-300 text-gray-400 border border-gray-300': props.disabled,
   'base-spinner cursor-wait': props.loading,
 }))
