@@ -28,7 +28,7 @@ const updateValue = (e: Event) => {
 </script>
 
 <template>
-    <div class="border border-gray-300 w-full rounded-md focus-within:border-uno-500 mb-4">
+    <div class="border border-gray-300 w-full rounded-md focus-within:border-primary-500 mb-4">
         <div class="relative px-4 py-2">
             <input :value="modelValue" :type="props.type" @input="updateValue" :name="props.label" placeholder=" "
                 class="block w-full z-2 appearance-none focus:outline-none bg-transparent" />
@@ -38,7 +38,7 @@ const updateValue = (e: Event) => {
     </div>
 </template>
 
-<style scoped>
+<style scoped lang="postcss">
 input:focus-within~label,
 input:not(:placeholder-shown)~label, .select label {
     @apply text-gray-400 font-bold transform text-xs px-2.5 -translate-y-7 left-2;
@@ -46,6 +46,6 @@ input:not(:placeholder-shown)~label, .select label {
 }
 
 input:focus-within~label {
-    @apply text-uno-500 font-bold;
+    @apply text-primary-500 font-bold;
 }
 </style>
