@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, withDefaults, defineProps, defineEmits } from 'vue';
+import { computed, withDefaults } from 'vue';
 
 type ButtonType = "button" | "submit" | "reset" | undefined;
 
