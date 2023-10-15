@@ -1,5 +1,15 @@
-import VButton from "./components/VButton/VButton.vue";
-import VTextField from "./components/VTextField/VTextField.vue";
+import components from './components.ts'
+import { App } from 'vue';
 
+const plugin = {
+  install(app: App) {
+    for (const prop in components) {
+      if (components.hasOwnProperty(prop)) {
+        const component = components[prop];
+        app.component(component.name, component);
+      }
+    }
+  },
+};
 
-export { VButton, VTextField };
+export default plugin;
