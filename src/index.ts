@@ -1,4 +1,4 @@
-import components from'./components.ts'
+import * as components from'./components.ts'
 
 const plugin = {
   install (Vue) {
