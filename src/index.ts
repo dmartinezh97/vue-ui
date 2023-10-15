@@ -10,7 +10,7 @@ const install = (app: App): void => {
 };
 
 // Exportando la función install junto con los componentes
-export {
+export default {
   install,
   components,
 };
