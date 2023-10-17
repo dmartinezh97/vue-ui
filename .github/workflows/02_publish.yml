@@ -22,7 +22,7 @@ jobs:
         token: ${{ secrets.GIT_SECRET }}
         node-version: 18
       env:
-        GIT_SECRET: ${{ secrets.GIT_SECRET }}
+        NODE_AUTH_TOKEN: ${{ secrets.GIT_SECRET }}
 
     # Publicar en npm
     # - name: Publicar to NPM
