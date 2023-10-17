@@ -23,9 +23,9 @@ jobs:
     - name: Publicar to NPM
       run: npm publish
       env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-    - name: Publicar to GitHub Packages
-      run: npm publish
-      env:
         NODE_AUTH_TOKEN: ${{ secrets.GIT_SECRET }}
+
+    # - name: Publicar to GitHub Packages
+    #   run: npm publish
+    #   env:
+    #     NODE_AUTH_TOKEN: ${{ secrets.GIT_SECRET }}
