@@ -1,20 +1,33 @@
-name: Publish Workflow
+name: Publish
 
 on:
   workflow_run:
-    workflows: ["Test Workflow"]
+    workflows: ["Test"]
     types:
       - completed
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v3
 
-    - name: Publish
-      run: |
-        # Comandos para publicar tu proyecto aquí
+    - name: Setup node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Instalar dependencias
+      run: npm install
+
+    - name: Build
+      run: npm run build
+
+    - name: Publicar en NPM
+      uses: JS-Devtools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
