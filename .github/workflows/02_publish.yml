@@ -28,6 +28,6 @@ jobs:
       run: npm run build
 
     - name: Publicar en NPM
-      uses: JS-Devtools/npm-publish@v1
+      uses: JS-Devtools/npm-publish@v2
       with:
         token: ${{ secrets.NPM_TOKEN }}

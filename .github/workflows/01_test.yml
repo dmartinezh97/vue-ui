@@ -11,8 +11,8 @@ jobs:
 
     steps:
     - name: Extraer código del repositorio
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
-    - name: Run tests
+    - name: Ejecutar tests
       run: |
         # Comandos para ejecutar tus pruebas aquí
