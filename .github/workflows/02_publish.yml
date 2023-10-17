@@ -1,8 +1,8 @@
-name: Publicar en NPM y GitHub Packages
+name: 02 - Publicar en NPM y GitHub Packages
 
 on:
   workflow_run:
-    workflows: ["Test"]
+    workflows: ["01 - Test"]
     types:
       - completed
 
@@ -23,7 +23,7 @@ jobs:
         registry-url: 'https://registry.npmjs.org/'
 
     - name: Publicar en NPM
-      uses: JS-Devtools/npm-publish@v2
+      uses: JS-Devtools/npm-publish@v1
       with:
         token: ${{ secrets.NPM_TOKEN }}
 
