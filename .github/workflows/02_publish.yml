@@ -23,18 +23,6 @@ jobs:
         registry-url: 'https://registry.npmjs.org/'
 
     - name: Publicar en NPM
-      uses: JS-Devtools/npm-publish@v1
-      with:
-        token: ${{ secrets.NPM_TOKEN }}
-
-    - name: Configurar versión de Node.js para GitHub Packages
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
-        registry-url: 'https://npm.pkg.github.com/'
-        scope: '@dmartinezh97'
-
-    - name: Publicar en Github Packages
       run: npm publish
       env:
-        PACKAGE_SECRET: ${{ secrets.PACKAGE_SECRET }}
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
