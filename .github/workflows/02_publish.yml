@@ -1,4 +1,4 @@
-name: Publish
+name: Publicar en NPM y GitHub Packages
 
 on:
   workflow_run:
