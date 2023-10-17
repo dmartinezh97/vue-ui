@@ -21,6 +21,7 @@ jobs:
       with:
         node-version: 18
         registry-url: 'https://npm.pkg.github.com/'
+        token: ${{ secrets.GIT_SECRET }}
 
     - name: Publicar en GitHub Packages
       run: npm publish
