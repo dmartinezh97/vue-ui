@@ -31,6 +31,11 @@ jobs:
     #     node-version: 18
     #     registry-url: https://registry.npmjs.org/
 
+    - name: Publicar en NPM
+      uses: JS-Devtools/npm-publish@v2
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+
     # - name: Publicar en NPM
     #   run: npm publish
     #   env:
