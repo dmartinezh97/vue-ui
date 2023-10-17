@@ -1,0 +1,20 @@
+name: Publish Workflow
+
+on:
+  workflow_run:
+    workflows: ["Test Workflow"]
+    types:
+      - completed
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Publish
+      run: |
+        # Comandos para publicar tu proyecto aquí
