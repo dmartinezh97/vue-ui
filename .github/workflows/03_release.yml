@@ -13,7 +13,7 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
-    - name: Checkout code
+    - name: Extraer código del repositorio
       uses: actions/checkout@v3
 
     - name: Comprobar el patrón de etiquetas v*
