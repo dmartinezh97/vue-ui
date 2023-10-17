@@ -16,11 +16,11 @@ jobs:
     - name: Extraer código del repositorio
       uses: actions/checkout@v3
 
-    - name: Configurar versión de Node.js para NPM
+    - name: Configurar versión de Node.js para Github Packages
       uses: actions/setup-node@v3
       with:
         node-version: 18
-        registry-url: 'https://registry.npmjs.org/'
+        registry-url: 'https://npm.pkg.github.com/'
 
     - name: Publicar en NPM
       run: npm publish
@@ -28,11 +28,11 @@ jobs:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         PACKAGE_SECRET: ${{ secrets.PACKAGE_SECRET }}
 
-    - name: Configurar versión de Node.js para Github Packages
+    - name: Configurar versión de Node.js para NPM
       uses: actions/setup-node@v3
       with:
         node-version: 18
-        registry-url: 'https://npm.pkg.github.com/'
+        registry-url: 'https://registry.npmjs.org/'
 
     - name: Publicar en NPM
       run: npm publish
