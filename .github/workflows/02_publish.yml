@@ -31,3 +31,6 @@ jobs:
       uses: JS-Devtools/npm-publish@v2
       with:
         token: ${{ secrets.NPM_TOKEN }}
+      
+    - name: Publicar en Github Packages
+      run: npm publish
