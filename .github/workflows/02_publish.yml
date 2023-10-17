@@ -22,10 +22,10 @@ jobs:
         node-version: 18
 
     # Publicar en npm
-    # - name: Publicar to NPM
-    #   run: npm publish --registry=https://registry.npmjs.org/
-    #   env:
-    #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: Publicar to NPM
+      run: npm publish --registry=https://registry.npmjs.org/
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     # Publicar en GitHub Packages
     - name: Publicar to GitHub Packages
