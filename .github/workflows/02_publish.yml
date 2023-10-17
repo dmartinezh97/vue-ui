@@ -18,8 +18,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 18
-        registry-url: https://npm.pkg.github.com/
-        scope: '@dmartinezh97'
+        registry-url: https://npm.pkg.github.com/@dmartinezh97/
 
     - name: Publicar en GitHub Packages
       run: npm publish
