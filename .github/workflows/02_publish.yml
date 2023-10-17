@@ -19,16 +19,17 @@ jobs:
     - name: Configurar versión de Node.js
       uses: actions/setup-node@v3
       with:
+        token: ${{ secrets.GIT_SECRET }}
         node-version: 18
 
     # Publicar en npm
-    - name: Publicar to NPM
-      run: npm publish --registry=https://registry.npmjs.org/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    # - name: Publicar to NPM
+    #   run: npm publish --registry=https://registry.npmjs.org/
+    #   env:
+    #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     # Publicar en GitHub Packages
     - name: Publicar to GitHub Packages
       run: npm publish --registry=https://npm.pkg.github.com/
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.GIT_SECRET }}
+      # env:
+      #   NODE_AUTH_TOKEN: ${{ secrets.GIT_SECRET }}
