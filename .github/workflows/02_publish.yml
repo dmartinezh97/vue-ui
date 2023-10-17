@@ -22,10 +22,10 @@ jobs:
         node-version: 18
         registry-url: 'https://npm.pkg.github.com/'
 
-    - name: Publicar en NPM
+    - name: Publicar en GitHub Packages
       run: npm publish
       env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_PACKAGES_TOKEN }}
         PACKAGE_SECRET: ${{ secrets.PACKAGE_SECRET }}
 
     - name: Configurar versión de Node.js para NPM
