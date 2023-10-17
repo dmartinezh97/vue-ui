@@ -21,6 +21,9 @@ jobs:
         registry-url: https://npm.pkg.github.com
 
     - name: Build
+      run: npm install
+
+    - name: Build
       run: npm run build
 
     - name: Publicar en GitHub Packages
