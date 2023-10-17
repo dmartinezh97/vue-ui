@@ -14,18 +14,25 @@ jobs:
     - name: Extraer código del repositorio
       uses: actions/checkout@v3
 
-    - name: Configurar versión de Node.js
+    - name: Configurar versión de Node.js para publicar en Github Packages
       uses: actions/setup-node@v3
       with:
         node-version: 18
         registry-url: https://npm.pkg.github.com/
 
-    - name: Publicar to NPM
+    - name: Publicar en GitHub Packages
       run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GIT_SECRET }}
 
-    # - name: Publicar to GitHub Packages
-    #   run: npm publish
-    #   env:
-    #     NODE_AUTH_TOKEN: ${{ secrets.GIT_SECRET }}
+    - name: Configurar versión de Node.js para publicar en NPM
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+        registry-url: https://registry.npmjs.org/
+
+    - name: Publicar en NPM
+      run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  
