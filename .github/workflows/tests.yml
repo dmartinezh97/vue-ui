@@ -3,7 +3,7 @@ name: 01 - Test
 on:
   push:
     branches:
-      - test #main
+      - main
 
 jobs:
   test:
