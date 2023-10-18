@@ -5,10 +5,10 @@ on:
     tags:
       - 'v*'          # Incluir tags que comiencen con 'v', ej. v0.0.1
       - '!v*-pre'     # Excluir tags que terminen con '-pre', ej. v0.0.2-pre
-  workflow_run:
-    workflows: ["01 - Test"]
-    types:
-      - completed
+  # workflow_run:
+  #   workflows: ["01 - Test"]
+  #   types:
+  #     - completed
 
 
 jobs:
