@@ -1,6 +1,9 @@
 name: 02 - Publicar en GitHub Packages
 
-# on:
+on:
+  push:
+      branches:
+        - main
 #   workflow_run:
 #     workflows: ["01 - Test"]
 #     types:
