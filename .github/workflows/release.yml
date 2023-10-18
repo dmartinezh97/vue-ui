@@ -5,11 +5,6 @@ on:
     tags:
       - 'v*'          # Incluir tags que comiencen con 'v', ej. v0.0.1
       - '!v*-pre'     # Excluir tags que terminen con '-pre', ej. v0.0.2-pre
-  # workflow_run:
-  #   workflows: ["01 - Test"]
-  #   types:
-  #     - completed
-
 
 jobs:
   release:
@@ -17,6 +12,11 @@ jobs:
     steps:
       - name: Extraer código del repositorio
         uses: actions/checkout@v3
+
+      - name: Ejecutar tests
+        run: |
+          # Comandos para ejecutar tus pruebas aquí
+
 
       - name: Crear Release
         uses: actions/create-release@v1
