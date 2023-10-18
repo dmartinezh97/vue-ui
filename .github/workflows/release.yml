@@ -3,7 +3,8 @@ name: 01 - Crear release
 on:
   push:
     tags:
-      - 'v*'
+      - 'v*'          # Incluir tags que comiencen con 'v'
+      - '!v*-pre'     # Excluir tags que terminen con '-pre'
 
 jobs:
   release:
